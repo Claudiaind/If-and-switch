@@ -1,0 +1,207 @@
+import java.util.Scanner;
+
+public class CalculadoraCalificaciones {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+ 
+        System.out.print("Ingrese la calificación de los parciales (0-100): ");
+        double parciales = scanner.nextDouble();
+        
+        System.out.print("Ingrese la calificación del proyecto (0-100): ");
+        double proyecto = scanner.nextDouble();
+        
+        System.out.print("Ingrese la calificación del examen final (0-100): ");
+        double examenFinal = scanner.nextDouble();
+        
+        
+        if ((parciales < 0 || parciales > 100) || (proyecto < 0 || proyecto > 100) || (examenFinal < 0 || examenFinal > 100)) {
+            System.out.println("Error: Todas las calificaciones deben estar en el rango de 0 a 100.");
+        } else {
+            double calificacionFinal = (parciales * 0.4) + (proyecto * 0.3) + (examenFinal * 0.3);
+          
+            System.out.println("La calificación final es: " + calificacionFinal);
+        }
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class VerificarEdadVotar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese su edad: ");
+        int edad = scanner.nextInt();
+        
+        if (edad >= 18) {
+            System.out.println("Eres elegible para votar.");
+        } else {
+            System.out.println("No eres elegible para votar.");
+        }
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EvaluacionCalificacion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese su calificación numérica (0-100): ");
+        int calificacion = scanner.nextInt();
+        
+        char letra;
+        if (calificacion >= 90) {
+            letra = 'A';
+        } else if (calificacion >= 80) {
+            letra = 'B';
+        } else if (calificacion >= 70) {
+            letra = 'C';
+        } else if (calificacion >= 60) {
+            letra = 'D';
+        } else {
+            letra = 'F';
+        }
+        
+        System.out.println("Su calificación en letra es: " + letra);
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class CalcularPrecioConDescuento {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el precio del producto: ");
+        double precio = scanner.nextDouble();
+        
+        double descuento;
+        if (precio <= 100) {
+            descuento = 0;
+        } else if (precio <= 200) {
+            descuento = 0.10;
+        } else if (precio <= 500) {
+            descuento = 0.20;
+        } else {
+            descuento = 0.25;
+        }
+        
+        double precioFinal = precio - (precio * descuento);
+        System.out.println("El precio final con descuento es: " + precioFinal);
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class DeterminarEstacion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el número del mes (1-12): ");
+        int mes = scanner.nextInt();
+        
+        String estacion;
+        switch (mes) {
+            case 12, 1, 2 -> estacion = "Invierno";
+            case 3, 4, 5 -> estacion = "Primavera";
+            case 6, 7, 8 -> estacion = "Verano";
+            case 9, 10, 11 -> estacion = "Otoño";
+            default -> estacion = "Mes inválido";
+        }
+        
+        System.out.println("La estación del año es: " + estacion);
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class ConvertidorGrados {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese la temperatura en grados Celsius: ");
+        double celsius = scanner.nextDouble();
+        
+        System.out.println("Seleccione la conversión: 1. Fahrenheit  2. Kelvin");
+        int opcion = scanner.nextInt();
+        
+        switch (opcion) {
+            case 1 -> System.out.println("Temperatura en Fahrenheit: " + ((celsius * 9/5) + 32));
+            case 2 -> System.out.println("Temperatura en Kelvin: " + (celsius + 273.15));
+            default -> System.out.println("Opción inválida");
+        }
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class ConversorMonedas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese la cantidad en pesos mexicanos: ");
+        double pesos = scanner.nextDouble();
+        
+        System.out.println("Seleccione la moneda a convertir:");
+        System.out.println("1. USD  2. EUR  3. THB  4. JPY  5. KRW  6. AUD  7. PEN  8. CAD  9. VES  10. ARS");
+        int opcion = scanner.nextInt();
+        
+        double tasa = switch (opcion) {
+            case 1 -> 0.057; // USD
+            case 2 -> 0.052; // EUR
+            case 3 -> 2.06;  // THB
+            case 4 -> 8.48;  // JPY
+            case 5 -> 74.32; // KRW
+            case 6 -> 0.088; // AUD
+            case 7 -> 0.21;  // PEN
+            case 8 -> 0.078; // CAD
+            case 9 -> 2.01;  // VES
+            case 10 -> 50.23; // ARS
+            default -> 0;
+        };
+        
+        if (tasa == 0) {
+            System.out.println("Opción inválida");
+        } else {
+            System.out.println("Cantidad convertida: " + (pesos * tasa));
+        }
+        
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class BrindarInformacion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese el nombre de un artista, película o serie:");
+        String entrada = scanner.nextLine();
+        
+        switch (entrada.toLowerCase()) {
+            case "shakira" -> System.out.println("Shakira es una cantante colombiana famosa por sus éxitos como 'Hips Don't Lie'.");
+            case "titanic" -> System.out.println("Titanic es una película de 1997 dirigida por James Cameron.");
+            case "breaking bad" -> System.out.println("Breaking Bad es una serie sobre un profesor de química convertido en narcotraficante.");
+            case "picasso" -> System.out.println("Pablo Picasso fue un pintor y escultor español, creador del cubismo.");
+            case "one piece" -> System.out.println("One Piece es un manga y anime sobre piratas en busca del tesoro legendario.");
+            default -> System.out.println("No tengo información sobre eso.");
+        }
+
+        
+        scanner.close();
+    }
+}
